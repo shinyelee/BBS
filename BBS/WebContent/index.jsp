@@ -8,6 +8,7 @@
 </head>
 <body>
 	<script>
+		<!-- 로그인 페이지로 이동 -->
 		location.href = 'login.jsp';
 	</script>
 </body>
