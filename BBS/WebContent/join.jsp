@@ -37,29 +37,45 @@
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li class="active"><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
+					<ul class="dropdown-menu"> <!-- 이 아래로 login.jsp(로그인) 페이지를 살짝 수정해 join.jsp(회원가입) 페이지를 만들었음 -->
+						<li><a href="login.jsp">로그인</a></li> <!-- 여기서 class="active" 지우고 -->
+						<li class="active"><a href="join.jsp">회원가입</a></li> <!-- 여기로 복붙하면 드롭다운 영역의'회원가입'란 활성화 됨 -->
 					</ul>
 				</li>	
 			</ul>
 		</div>
 	</nav>
-	<!-- 로그인 양식 -->
+	<!-- 회원가입 양식 -->
 	<div class="container">
 		<div class="col-lg-4"></div>
 			<div class="jumbotron" style="padding-top: 20px;">
-			 	<form method="post" action="loginAction.jsp">
-			 		<h3 style="text-align: center:">로그인 화면</h3>
-			 		<!-- 아이디, 비밀번호 입력창 -->
+			 	<form method="post" action="joinAction.jsp"> <!-- 데이터를 joinAction.jsp로 보냄 -->
+			 		<h3 style="text-align: center:">회원가입 화면</h3>
+			 		<!-- 아이디, 비밀번호, 이름, 성별, 이메일 입력창 -->
 			 		<div class="form-group">
 			 			<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">	
 			 		</div>
 			 		<div class="form-group">
 			 			<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20">	
 			 		</div>
-			 		<!-- 로그인 버튼 -->
-			 		<input type="submit" class="btn btn-primary form-control" value="로그인">
+			 		<div class="form-group"> <!-- 이름 입력란 추가 -->
+			 			<input type="text" class="form-control" placeholder="이름" name="userName" maxlength="20">	
+			 		</div>
+			 		<div class="form-group" style="text-align: center;"> <!-- 성별 선택 버튼 추가 -->
+			 			<div class="btn-group" data-toggle="buttons">
+			 				<label class="btn btn-primary active">
+			 					<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
+			 				</label>
+			 				<label class="btn btn-primary">
+			 					<input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
+			 				</label>
+			 			</div>
+			 		</div><br>
+			 		<div class="form-group"> <!-- 이메일 입력란 추가 -->
+			 			<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="20">	
+			 		</div>
+			 		<!-- 회원가입 버튼 -->
+			 		<input type="submit" class="btn btn-primary form-control" value="회원가입">
 			 	</form>
 			</div>
 	</div>
