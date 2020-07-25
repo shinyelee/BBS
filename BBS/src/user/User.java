@@ -1,5 +1,5 @@
 package user;
-// JavaBeans
+// JavaBeans: 하나의 데이터를 관리하고 처리할 수 있는 기법을 JSP에서 구현
 public class User {
 
 	private String userID;
@@ -8,6 +8,7 @@ public class User {
 	private String userGender;
 	private String userEmail;
 	
+	// 노가다하지말고 자동완성하자
 	// ctl+shift+s -> Generate Getters and Setters -> Select All -> OK
 	public String getUserID() {
 		return userID;

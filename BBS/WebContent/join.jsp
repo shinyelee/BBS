@@ -12,9 +12,9 @@
 <body>
 	<!-- 내비게이션 영역 -->
 	<nav class="navbar navbar-default">
-		<!-- 헤더 -->
+		<!-- 헤더(대충 로고 등 들어간다고 생각하면 됨) -->
 		<div class="navbar-header">
-			<!-- 모바일 기준 우측 상단 三 버튼 -->
+			<!-- 모바일 기준 우측 상단 三 모양 버튼 -->
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
@@ -63,14 +63,14 @@
 			 		</div>
 			 		<div class="form-group" style="text-align: center;"> <!-- 성별 선택 버튼 추가 -->
 			 			<div class="btn-group" data-toggle="buttons">
-			 				<label class="btn btn-primary active">
+			 				<label class="btn btn-primary active"> <!-- active 써 넣어서 성별 기본값을 남자로 설정 -->
 			 					<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
 			 				</label>
 			 				<label class="btn btn-primary">
 			 					<input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
 			 				</label>
 			 			</div>
-			 		</div><br>
+			 		</div>
 			 		<div class="form-group"> <!-- 이메일 입력란 추가 -->
 			 			<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="20">	
 			 		</div>
