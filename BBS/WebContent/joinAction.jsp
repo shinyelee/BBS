@@ -18,6 +18,18 @@
 </head>
 <body>
 	<%  // 회원가입 기능 구현
+		String userID = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+		if (userID != null) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('이미 로그인이 되어 있습니다.')"); 
+			script.println("location.href = 'main.jsp'"); 
+			script.println("</script>");
+		}
+		
 		if(user.getUserID() == null // 아이디가 빈 값
 		|| user.getUserPassword() == null // or 비밀번호가 빈 값
 		|| user.getUserName() == null // or 이름이 빈 값
@@ -38,6 +50,7 @@
 				script.println("history.back()");
 				script.println("</script>");
 			} else { // 나머지: 빈 값도 없고 아이디도 중복이 아닌 경우
+				session.setAttribute("userID", user.getUserID()); // 세션값 부여
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('회원가입을 완료하였습니다.')");

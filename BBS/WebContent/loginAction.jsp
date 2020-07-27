@@ -14,9 +14,22 @@
 </head>
 <body>
 	<%  // 로그인 기능 구현
+		String userID = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+		if (userID != null) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('이미 로그인이 되어 있습니다.')"); 
+			script.println("location.href = 'main.jsp'"); 
+			script.println("</script>");
+		}
+		
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(user.getUserID(), user.getUserPassword()); // 로그인 시도
 		if (result == 1) { // 1 -> 로그인 성공
+			session.setAttribute("userID", user.getUserID()); // 세션값 부여
 			PrintWriter script = response.getWriter(); // 자바스크립트 문장 실행
 			script.println("<script>");
 			script.println("alert('로그인에 성공했습니다.')"); // 작성한 문구가 쓰여진 알림창을 띄움
