@@ -1,7 +1,8 @@
 package user;
 // JavaBeans: 하나의 데이터를 관리하고 처리할 수 있는 기법을 JSP에서 구현
 public class User {
-
+	
+	// 유저정보 자바빈즈
 	private String userID;
 	private String userPassword;
 	private String userName;
@@ -9,7 +10,7 @@ public class User {
 	private String userEmail;
 	
 	// 노가다하지말고 자동완성하자
-	// ctl+shift+s -> Generate Getters and Setters -> Select All -> OK
+	// alt+shift+s -> Generate Getters and Setters -> Select All -> OK
 	public String getUserID() {
 		return userID;
 	}

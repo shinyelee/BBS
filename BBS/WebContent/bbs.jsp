@@ -77,7 +77,7 @@
 		<div class="row">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
-					<tr><!-- 양식 -->
+					<tr> <!-- 양식 -->
 						<th style="background-color: #eeeeee; text-align: center;">번호</th>
 						<th style="background-color: #eeeeee; text-align: center;">제목</th>
 						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
@@ -85,7 +85,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr><!-- 내용 -->
+					<tr> <!-- 내용 -->
 						<td>1</td>
 						<td>안녕하세요</td>
 						<td>홍길동</td>
