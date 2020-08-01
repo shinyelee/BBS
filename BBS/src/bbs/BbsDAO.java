@@ -106,4 +106,27 @@ public class BbsDAO {
 		}
 		return false;
 	}
+	
+	public Bbs getBbs(int bbsID) { // 글 하나 내용 불러오는 함수
+		String SQL = "select * from bbs where bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, bbsID); // 
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				Bbs bbs = new Bbs(); // ? 6개임
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				return bbs;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null; // 해당 글 존재하지 않으면 null 반환
+	}
+	
 }
