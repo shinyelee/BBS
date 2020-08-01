@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class BbsDAO {
 	// * 이 파일은 이 아래로 UserDAO.java를 일부 수정해 만들었음
@@ -13,7 +14,7 @@ public class BbsDAO {
 	
 	public BbsDAO() {
 		try {
-			String dbURL="jdbc:mysql://localhost:3306/BBS";
+			String dbURL="jdbc:mysql://localhost:3306/bbs";
 			String dbID = "root";
 			String dbPassword = "1234";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -67,5 +68,42 @@ public class BbsDAO {
 			e.printStackTrace();
 		}
 		return -1; // 데이터베이스 오류
+	}
+	
+	public ArrayList<Bbs> getList(int pageNumber) { // 페이징 처리
+		String SQL = "select * from bbs where bbsID < ? and bbsAvailable = 1 order by bbsID desc limit 10";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10); // 한 페이지에 글 10개씩 출력
+			rs = pstmt.executeQuery();
+			while (rs.next()) { // 게시글에 출력할 데이터
+				Bbs bbs = new Bbs(); // ? 6개임
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				list.add(bbs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public boolean nextPage(int pageNumber) { // 10개 단위로 딱 떨어지면 다음 페이지 만들지 않음
+		String SQL = "select * from bbs where bbsID < ? and bbsAvailable = 1";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10); // 한 페이지에 글 10개씩 출력
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

@@ -18,7 +18,7 @@ public class UserDAO {
 	
 	public UserDAO() { // 기본 생성자, mysql에 접속할 수 있도록 도와주는 역할.
 		try {
-			String dbURL="jdbc:mysql://localhost:3306/BBS"; // DB와 연결해주는 주소
+			String dbURL="jdbc:mysql://localhost:3306/bbs"; // DB와 연결해주는 주소
 			String dbID = "root"; // mysql 아이디
 			String dbPassword = "1234"; // mysql 비밀번호
 			Class.forName("com.mysql.jdbc.Driver"); // driver는 mysql에 접속하도록 도와주는 라이브러리 매개체
