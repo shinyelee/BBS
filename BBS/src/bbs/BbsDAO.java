@@ -129,4 +129,17 @@ public class BbsDAO {
 		return null; // 해당 글 존재하지 않으면 null 반환
 	}
 	
+	public int update(int bbsID, String bbsTitle, String bbsContent) { // 수정할 글 불러오기
+		String SQL = "update bbs set bbsTitle = ?, bbsContent = ? where bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); 
+			pstmt.setString(1, bbsTitle);
+			pstmt.setString(2, bbsContent);
+			pstmt.setInt(3, bbsID);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // 데이터베이스 오류
+	}
 }
