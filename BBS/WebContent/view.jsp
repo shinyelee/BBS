@@ -113,7 +113,7 @@
 				if(userID != null && userID.equals(bbs.getUserID())) { // 접속한 userID가 빈 값이 아닌 로그인 상태인 동시에 작성자와 일치할 때
 			%>
 					<a href="update.jsp?bbsID=<%= bbsID %>" class="btn btn-primary pull-right">수정</a> <!-- 글 수정 페이지로 보냄 -->
-					<a href="deleteAction.jsp?bbsID=<%= bbsID %>" class="btn btn-danger pull-right">삭제</a> <!-- 글 삭제 페이지로 보냄 -->
+					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%= bbsID %>" class="btn btn-danger pull-right">삭제</a> <!-- 글 삭제 페이지로 보냄 -->
 			<%
 				}
 			%>
