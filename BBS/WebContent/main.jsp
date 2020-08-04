@@ -72,6 +72,44 @@
 			%>
 		</div>
 	</nav>
+	<!-- 커버 페이지 -->
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="text-center">JSP 게시판 웹 사이트</h1>
+			<p class="text-center">여기에서 다른 사람들과 의견을 주고받으세요.</p>
+			<!-- 로그인 페이지로 이동하는 버튼 -->
+			<p class="text-center"><a class="btn btn-primary" href="bbs.jsp">바로가기</a></p>
+		</div>
+	</div>
+	<!-- 스틸컷 돌아가는 부분-->
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- 스틸컷 이미지 삽입 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="images/0.jpg">
+				</div>
+				<div class="item">
+					<img src="images/1.jpg">
+				</div>
+				<div class="item">
+					<img src="images/2.jpg">
+				</div>
+			</div>
+			<!-- 스틸컷 넘기는 버튼 -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
 	<!-- CSS(부트스트랩 사용) -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>

@@ -54,6 +54,7 @@
 				} else { // 게시글 삭제 성공
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
+					script.println("alert('게시글이 삭제되었습니다.')");
 					script.println("location.href = 'bbs.jsp'"); // 게시글을 삭제했으므로 게시판 페이지로 이동
 					script.println("</script>");
 				} 
